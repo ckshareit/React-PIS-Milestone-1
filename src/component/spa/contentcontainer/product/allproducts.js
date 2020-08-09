@@ -33,7 +33,7 @@ class AllProducts extends React.Component {
 
     
     getAllProducts=()=>{
-        axios.get('http://localhost:3006/products')
+        axios.get('https://dcqbuascz3bv4.cloudfront.net/c9-149ec93cab2a-ide/@c9/ide/plugins/c9.ide.preview.browser/nohttps.html#http://18.204.199.239:3006/products')
                 .then(response=>{
                     console.log(response);
                     console.log(response.data)
