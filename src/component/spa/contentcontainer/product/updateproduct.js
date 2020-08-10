@@ -20,6 +20,7 @@ class UpdateProduct extends React.Component {
             idError:'',
             productNameError:'',
             categoryError:'',
+            subCategoryError:'',
             brandError:'',
             ratingError:'',
             priceError:'',
@@ -279,13 +280,31 @@ class UpdateProduct extends React.Component {
                     <br></br> <br></br>
 
                     <label>Category: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="form-control1" type='text' id="category" value={this.state.category} onChange={this.getCategory}></input>
-                    <span class="error"> {this.state.categoryError}</span>
+                    <select class="form-control1" id="category" value={this.state.category} onChange={this.getCategory}>
+                    <option value="">Select</option>
+  <option value="Electronics">Electronics</option>
+  <option value="Clothes">Clothes</option>
+  <option value="Home & Furniture">Home & Furniture</option>
+  <option value="Sports">Sports</option>
+  <option value="Home & Kitchen">Home & Kitchen</option>
+
+  <option value="Home & Bathroom">Home & Bathroom</option>
+  <option value="Home Lighting">Home Lighting</option>
+</select><span class="error"> {this.state.categoryError}</span>
                     <br></br> <br></br>
 
-                    <label>Sub Category: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="form-control1" type='text' id="subCategory" value={this.state.subCategory} onChange={this.getSubCategory}></input>
-                    <span class="error"> {this.state.productNameError}</span>
+                    <label>Sub Category: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <select class="form-control1" id="subCategory" value={this.state.subCategory} onChange={this.getSubCategory}>
+                    <option value="">Select</option>
+  <option value="Fashion">Fashion</option>
+  <option value="Accessories">Accessories</option>
+  <option value="Mobile">Mobile</option>
+  <option value="Outdoor">Outdoor</option>
+  <option value="Utensil">Utensil</option>
+  <option value="Decoration">Decoration</option>
+
+                    </select>
+                    <span class="error"> {this.state.subCategoryError}</span>
                     <br></br> <br></br>
 
                     <label>Brand: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
