@@ -30,6 +30,7 @@ class Dashboard extends React.Component {
       this.getAllProducts()
   }
  
+ 
 getAllProducts=()=>{
   axios.get('http://localhost:3006/products')
           .then(response=>{
@@ -57,30 +58,24 @@ getLebels=()=>{
 getStockData=()=>{
   return this.state.products.map(product=>{
 
-    
+   var res=parseInt(product.stock)
+   res=parseInt(product.stock)
+  
     return(
-      product.stock
+      res
     )
 })
-}
-
-prepareStockData=()=>{
-  var stockDataGather =[];
-
-stockDataGather.push(this.getStockData());
-
-return stockDataGather;
+  
 }
 
   prepareData=()=>{
-
-    
+   
     return ({
       labels: this.getLebels(),
      
       datasets: [
         {
-          label: 'Product',
+          label: 'Stock',
           backgroundColor: 'rgba(75,192,192,1)',
           borderColor: 'rgba(0,0,0,1)',
           borderWidth: 2,
