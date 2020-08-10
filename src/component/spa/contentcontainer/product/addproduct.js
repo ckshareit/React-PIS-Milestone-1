@@ -19,6 +19,7 @@ class AddProduct extends React.Component {
             idError:'',
            productNameError:'',
            categoryError:'',
+           subCategoryError:'',
            brandError:'',
            priceError:'',
            stockError:'', 
@@ -27,13 +28,7 @@ class AddProduct extends React.Component {
         }
     }
 
-    getID=(event)=>{
-        
-        console.log(event)
-        console.log(event.target)
-        console.log(event.target.value)
-        this.setState({id: event.target.value})  
-    }
+  
     getProductName=(event)=>{
         
         console.log(event)
@@ -104,20 +99,16 @@ class AddProduct extends React.Component {
 
     checkValidation=()=>{
 
-        if(this.state.id.length==0){
-            this.setState({idError: ' Enter Product ID'})
-            return false
-        }
-       else if(this.state.productName.length==0){
+        if(this.state.productName.length==0){
             this.setState({productNameError: ' Enter Product Name'})
             return false
         }
         else  if(this.state.category.length==0){
-            this.setState({categoryError: ' Enter Product Category'})
+            this.setState({categoryError: ' Select Product Category'})
             return false
         }
         else  if(this.state.subCategory.length==0){
-            this.setState({subCategoryError: ' Enter Sub Category'})
+            this.setState({subCategoryError: ' Select Sub Category'})
             return false
         }
         else  if(this.state.brand.length==0){
@@ -149,7 +140,7 @@ class AddProduct extends React.Component {
         if(this.checkValidation()){
         console.log('Add Product via axios and post')
         let productRequestBody = {
-            "id": this.state.id,
+           
             "ProductName": this.state.productName,
             "Category":this.state.category,
             "SubCategory":this.state.subCategory,
@@ -197,10 +188,7 @@ class AddProduct extends React.Component {
   <div id="addproduct">
   <br></br><br></br>
                 <form>
-                    <label>Product ID: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="form-control1" type='text' id="id" onChange={this.getID}></input>
-                    <span class="error"> {this.state.idError}</span>
-                    <br></br> <br></br>
+                   
 
                     <label>Product Name: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input class="form-control1" type='text' id="productName" onChange={this.getProductName}></input>
@@ -208,13 +196,33 @@ class AddProduct extends React.Component {
                     <br></br> <br></br>
 
                     <label>Category: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="form-control1" type='text' id="category" onChange={this.getCategory}></input>
-                    <span class="error"> {this.state.categoryError}</span>
+                    <select class="form-control1" id="category" onChange={this.getCategory}>
+                    <option value="">Select</option>
+  <option value="Electronics">Electronics</option>
+  <option value="Clothes">Clothes</option>
+  <option value="Home & Furniture">Home & Furniture</option>
+  <option value="Sports">Sports</option>
+  <option value="Home & Kitchen">Home & Kitchen</option>
+  
+  <option value="Home & Bathroom">Home & Bathroom</option>
+  <option value="Home Lighting">Home Lighting</option>
+</select><span class="error"> {this.state.categoryError}</span>
                     <br></br> <br></br>
 
-                    <label>Sub Category: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input class="form-control1" type='text' id="subCategory" onChange={this.getSubCategory}></input>
-                    <span class="error"> {this.state.productNameError}</span>
+
+                    
+                    <label>Sub Category: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <select class="form-control1" id="subCategory" onChange={this.getSubCategory}>
+                    <option value="">Select</option>
+  <option value="Fashion">Fashion</option>
+  <option value="Accessories">Accessories</option>
+  <option value="Mobile">Mobile</option>
+  <option value="Outdoor">Outdoor</option>
+  <option value="Utensil">Utensil</option>
+  <option value="Decoration">Decoration</option>
+
+                    </select>
+                    <span class="error"> {this.state.subCategoryError}</span>
                     <br></br> <br></br>
 
                     <label>Brand: </label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
